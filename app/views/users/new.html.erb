@@ -1,4 +1,12 @@
+
 <%= form_for(@user) do |f| %>
+   <% if @user.errors.full_messages.any? %>
+      <ul>
+         <% @user.errors.full_messages.each do |error_messages| %>
+            <li> <%= error_messages %> </li> <br>
+         <% end %>
+      </ul>
+   <% end %>
    <%= f.label :username %><br>
    <%= f.text_field :username %><br>
    <%= f.label :email %><br>
