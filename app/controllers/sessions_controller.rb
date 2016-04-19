@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     if current_user
       session[:user_id] = nil
       flash[:notice] = "Signed out!"
-      redirect_to '/'
+      redirect_to root_path
     end
   end
 end
