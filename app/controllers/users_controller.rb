@@ -9,8 +9,9 @@ class UsersController < ApplicationController
 
    def create
       @user = User.create(user_params)
+      @attempt = Attempt.create(user_id: @user.id)
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to attempts_path(@user)
    end
 
    def show

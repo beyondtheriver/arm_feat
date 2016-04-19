@@ -1,0 +1,20 @@
+<%= content_tag :h1, "Edit Word #{@word.id}" %>
+<%= link_to "All Words", words_path%><br>
+
+Word: &#09;<%= @word.text %><br>
+Difficulty: &#09;<%= @word.difficulty %><br>
+Length: &#09;<%= @word.length %>
+
+
+<%= form_for @word, url: word_path do |form| %>
+<%= form.label "Current Word" %><br>
+<%= form.text_field :text, :value => @word.text %><br>
+<%= form.label "Current Difficulty" %><br>
+<%= form.text_field :difficulty, :value => @word.difficulty %><br>
+<%= form.submit :submit %>
+<% end %>
+<br>
+<%= form_for @word, method: :delete do |form| %>
+<%= form.label "Delete Word: #{@word.text}" %><br>
+<%= form.submit :submit %>
+<% end %>

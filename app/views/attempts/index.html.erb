@@ -1,0 +1,11 @@
+<% Attempt.all.each do |a| %>
+   User ID: <%= a.user_id %><br>
+   Level: <%= a.level %><br>
+   Boss ID:<%=a.boss_id %><br>
+   <%= link_to "Edit", edit_attempt_path(a.id) %><br><br>
+   <%= link_to "Start Playing", attempt_path(a.id) %>
+<br>
+<br>
+<br>
+<% end %>
+

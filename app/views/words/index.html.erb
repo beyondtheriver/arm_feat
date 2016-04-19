@@ -1,0 +1,9 @@
+<%= content_tag :h1, "All Words" %>
+
+<%= link_to "Add Words", new_word_path%><br>
+
+<% Word.all.each do |w| %>
+   <%= w.text %><br>
+   difficulty:<%= w.difficulty %>&#09;id:<%=w.id%><br>
+   <%= link_to "Edit", edit_word_path(w.id) %><br><br>
+<% end %>

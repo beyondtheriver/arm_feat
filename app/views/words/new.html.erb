@@ -1,0 +1,16 @@
+<%= content_tag :h1, "Edit Words" %>
+
+<%= form_for @word, url: words_path do |form| %>
+<%= form.label "New Word"  %>
+<%= form.text_field :text, :autofocus => true %>
+<%= form.label "Difficulty" %>
+<%= form.text_field :difficulty %>
+<%= form.submit :submit %>
+<% end %>
+
+
+<% Word.all.each do |w| %>
+   <%= w.text %><br>
+   difficulty:<%= w.difficulty %>&#09;id:<%=w.id%><br>
+   <%= link_to "Edit", edit_word_path(w.id) %><br><br>
+<% end %>

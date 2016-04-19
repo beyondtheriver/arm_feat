@@ -1,12 +1,6 @@
 <h1>ARM FEAT</h1>
 <p>TYPE CHAMPION</p>
 
-<%= content_tag :div, id: "sign_up" do %>
-   <%= link_to "Sign Up", new_user_path %>
-<% end %>
-
-
-
 <%= content_tag :h1, @word.text %> <br>
 <%= content_tag :h3, "Youre Score: #{@score}" %> <br>
 
@@ -15,11 +9,3 @@
    <%= hidden_field_tag :answer, @word.text %>
    <%= submit_tag :send %>
 <% end%>
-
-<%= content_tag :h1, "All Words" %>
-<%= link_to "Add Words", new_word_path%><br>
-
-
-<% Word.all.each do |w| %>
-   <%= w.text %><br>
-<% end %>
