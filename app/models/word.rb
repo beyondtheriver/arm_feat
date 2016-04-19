@@ -1,4 +1,5 @@
 class Word < ActiveRecord::Base
+   has_many :attempts
 
    before_create :generate_length
 

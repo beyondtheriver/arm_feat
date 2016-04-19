@@ -11,11 +11,12 @@ class UsersController < ApplicationController
       @user = User.create(user_params)
       @attempt = Attempt.create(user_id: @user.id)
       session[:user_id] = @user.id
-      redirect_to attempts_path(@user)
+      redirect_to user_path(@user.id)
    end
 
    def show
       @user = User.find(params[:id])
+      @current_user = User.find(session[:user_id])
    end
 
    def update

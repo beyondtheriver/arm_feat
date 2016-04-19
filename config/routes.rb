@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
 
   root 'home#index'
-  post 'check_word' => 'home#check_word', as: :check_word
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  post 'check_word' => 'attempts#check_word', as: :check_word
   post 'create_word' => 'home#create_word', as: :create_word
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

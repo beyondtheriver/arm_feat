@@ -1,0 +1,12 @@
+<h2>Log In Box</h2>
+<div id="rubylogin">
+   <%= form_for :session, url: '/login' do |f| %>
+   <%=f.label :username %>
+   <%=f.text_field :username %>
+   <br>
+   <%=f.label :password %>
+   <%=f.password_field :password %>
+   <br>
+   <%=f.submit :login %>
+   <% end %>
+</div>

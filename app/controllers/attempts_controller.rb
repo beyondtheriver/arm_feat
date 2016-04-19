@@ -39,6 +39,7 @@ class AttemptsController < ApplicationController
    end
 
    def check_word
+      a = Attempt.find(params[:attempt])
    puts "PARAMS ARE: #{params}"
    if params[:answer] == params[:word].downcase
       session[:score] += 1

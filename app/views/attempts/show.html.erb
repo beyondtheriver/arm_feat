@@ -7,5 +7,6 @@
 <%= form_tag check_word_path do %>
    <%= text_field_tag :word, "", :autofocus => true %>
    <%= hidden_field_tag :answer, @word.text %>
+   <%= hidden_field_tag :attempt, @attempt.id %>
    <%= submit_tag :send %>
 <% end%>
