@@ -1,3 +1,14 @@
-// Place all the styles related to the Attempts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#attempts_wrapper{
+   background-color: gray;
+   overflow-x: hidden;
+   width: 102%;
+   height: 103%;
+   padding-left: 2%;
+   margin-left: -1%;
+   margin-bottom: -2%;
+   margin-top: -16px;
+   font-family: impact;
+}
+#challenge_word{
+   text-align: center;
+}

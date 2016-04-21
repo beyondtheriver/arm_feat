@@ -1,3 +1,50 @@
-// Place all the styles related to the User controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#users_wrapper{
+   background-color: gray;
+   overflow-x: hidden;
+   width: 102%;
+   height: 103%;
+   padding-left: 2%;
+   margin-left: -1%;
+   margin-bottom: -2%;
+   margin-top: -16px;
+}
+#mini-logo{
+   width: 30%;
+   margin: auto;
+   display: block;
+}
+#sign_up_header{
+   font-family: impact;
+   text-align: center;
+}
+#sign_up_form{
+   border: 1px solid black;
+   text-align: center;
+   padding: 1em;
+   width: 30%;
+   margin: auto;
+   font-family: impact;
+}
+#submit_button{
+   font-family: impact;
+}
+.home_buttons{
+   border: none;
+   font-size: 2em;
+   font-family: monospace;
+   background-color: #AA0000;
+   width: 6.5em;
+   height: 2.5em;
+   margin: 36px;
+   border-radius: 45px;
+   a:link,
+   a:visited,
+   a:active{
+      text-decoration: none;
+      color: white;
+   }
+   a:hover{
+      text-decoration: none;
+      color: yellow;
+   }
+}

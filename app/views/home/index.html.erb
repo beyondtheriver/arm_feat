@@ -1,32 +1,24 @@
-<h1>ARM FEAT</h1>
-<p>TYPE CHAMPION</p>
+<%= content_tag :div, id: "home_wrapper" do %>
+   <%= image_tag("arm_feat_logo.png") %>
 
-<% if current_user %>
-   <%= content_tag :div, id: "logged-in" do %>
+   <% if current_user %>
       <%= content_tag :h3, "Welcome #{current_user.username}!" %>
-   <% end %>
-   <%= content_tag :div, id: "log-out" do %>
-      <%= link_to "Log Out", logout_path, method: :delete %>
-   <% end %>
-<% else %>
-   <%= content_tag :div, id: "sign_up" do %>
-      <%= link_to "Sign Up", new_user_path %>
-   <% end %>
-   <%= content_tag :div, id: "log_in" do %>
-      <%= link_to "Log In", login_path %>
+      <%= content_tag :div, id: "logged-in" do %>
+         <%= content_tag :div, id: "start-playing" do %>
+            <button class="home_buttons"><%= link_to "Play Now", attempt_path(Attempt.last.id) %></button>
+         <% end %>
+         <%= content_tag :div, id: "log-out" do %>
+            <button class="home_buttons"><%= link_to "Log Out", logout_path, method: :delete %></button>
+         <% end %>
+      <% end %>
+   <% else %>
+      <%= content_tag :div, id: "not_logged_in" do %>
+         <%= content_tag :div, id: "sign_up" do %>
+            <button id="sign_up_button" class="home_buttons"><%= link_to "Sign Up", new_user_path %></button>
+         <% end %>
+         <%= content_tag :div, id: "log_in" do %>
+            <button id="log_in_button" class="home_buttons"><%= link_to "Log In", login_path %></button>
+         <% end %>
+      <% end %>
    <% end %>
 <% end %>
-
-
-<%= content_tag :h1, @word.text %> <br>
-<%= content_tag :h3, "Youre Score: #{@score}" %> <br>
-
-<%= form_tag check_word_path do %>
-   <%= text_field_tag :word, "", :autofocus => true %>
-   <%= hidden_field_tag :answer, @word.text %>
-   <%= submit_tag :send %>
-<% end%>
-
-<%= content_tag :h1, "All Words" %>
-<%= link_to "Add Words", new_word_path%><br>
-

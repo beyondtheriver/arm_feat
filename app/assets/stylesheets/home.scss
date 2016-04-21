@@ -1,3 +1,44 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#home_wrapper{
+   background-color: gray;
+   overflow-x: hidden;
+   width: 102%;
+   height: 103%;
+   padding-left: 2%;
+   margin-left: -1%;
+   margin-bottom: -2%;
+   margin-top: -16px;
+   h3{
+      font-family: impact;
+   }
+}
+#logged-in{
+   display: flex;
+   justify-content: space-around;
+   margin-top: -86px;
+}
+#not_logged_in{
+   display: flex;
+   justify-content: space-around;
+   margin-top: -86px;
+}
+.home_buttons{
+   border: none;
+   font-size: 2em;
+   font-family: monospace;
+   background-color: #AA0000;
+   width: 6.5em;
+   height: 2.5em;
+   margin: 36px;
+   border-radius: 45px;
+   a:link,
+   a:visited,
+   a:active{
+      text-decoration: none;
+      color: white;
+   }
+   a:hover{
+      text-decoration: none;
+      color: yellow;
+   }
+}
+

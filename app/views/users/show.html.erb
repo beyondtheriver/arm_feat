@@ -1,4 +1,6 @@
-<%= @user.username %><br>
-Current User: <%= @current_user.username %><br>
+<%= content_tag :div, id: "users_wrapper" do %>
+   <%= image_tag ("arm_feat_logo.png"), id: "mini-logo" %>
+   <%= content_tag :h1, "Current User: #{@user.username}" %><br>
 
-<%= link_to "Ready to Play?", attempts_path %>
+   <button class="home_buttons"><%= link_to "Ready to Play?", attempts_path %></button>
+<% end %>

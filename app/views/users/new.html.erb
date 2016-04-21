@@ -1,17 +1,22 @@
-
-<%= form_for(@user) do |f| %>
-   <% if @user.errors.full_messages.any? %>
-      <ul>
-         <% @user.errors.full_messages.each do |error_messages| %>
-            <li> <%= error_messages %> </li> <br>
+<%= content_tag :div, id: "users_wrapper" do %>
+   <%= image_tag ("arm_feat_logo.png"), id: "mini-logo" %>
+   <%= content_tag :h1, "Sign Up", id: "sign_up_header" %>
+   <%= content_tag :div, id: "sign_up_form" do %>
+      <%= form_for(@user) do |f| %>
+         <% if @user.errors.full_messages.any? %>
+            <ul>
+               <% @user.errors.full_messages.each do |error_messages| %>
+                  <li> <%= error_messages %> </li> <br>
+               <% end %>
+            </ul>
          <% end %>
-      </ul>
+         <%= f.label :username %><br>
+         <%= f.text_field :username %><br>
+         <%= f.label :email %><br>
+         <%= f.text_field :email %><br>
+         <%= f.label :password %><br>
+         <%= f.password_field :password %><br>
+         <%= f.submit "Sign Up!", id: "submit_button" %><br>
+      <% end %>
    <% end %>
-   <%= f.label :username %><br>
-   <%= f.text_field :username %><br>
-   <%= f.label :email %><br>
-   <%= f.text_field :email %><br>
-   <%= f.label :password %><br>
-   <%= f.password_field :password %><br>
-   <%= f.submit %>
 <% end %>
