@@ -5,12 +5,17 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Metal+Mania' rel='stylesheet' type='text/css'>
 </head>
 <body>
+   <audio id="noise">
+      <source src="/grunt.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+   </audio>
 
-   <div>
+   <%= content_tag :div, id: "flash_message" do %>
       <%= flash[:notice] if flash[:notice] %>
-   </div>
+   <% end %>
 
 <%= yield %>
 

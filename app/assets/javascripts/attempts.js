@@ -5,6 +5,7 @@ $(document).on('ready page:change', function(){
    var counter = 10000;
    var x = parseInt($("#arm_x").val());
    var type_speed = 500;
+   $('#noise')[0].play();
    opponentTypes();
 
 
