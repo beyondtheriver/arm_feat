@@ -60,7 +60,7 @@ class AttemptsController < ApplicationController
    if @attempt.score < 10 && @attempt.score > -10
       redirect_to attempt_path(@attempt.id)
    else
-      redirect_to root_path
+      redirect_to user_path(current_user)
    end
 end
 

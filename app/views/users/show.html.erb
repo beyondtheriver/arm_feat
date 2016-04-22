@@ -1,6 +1,13 @@
 <%= content_tag :div, id: "users_wrapper" do %>
    <%= image_tag ("arm_feat_logo.png"), id: "mini-logo" %>
-   <%= content_tag :h1, "Current User: #{@user.username}" %><br>
+   <%= content_tag :div, id: "user_photo" do %>
+      <%= image_tag ("default_photo.jpg"), id: "default_photo" %>
+   <% end %>
 
-   <button class="home_buttons"><%= link_to "Ready to Play?", attempts_path %></button>
+
+
+
+   <%= content_tag :h1, "Username: #{@user.username}" %><br>
+   <%= content_tag :h3, "Record: WINS 0 LOSSES 0" %><br>
+   <button class="home_buttons" id="profile_play_button"><%= link_to "LET'S PLAY!", new_attempt_path %></button>
 <% end %>
