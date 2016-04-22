@@ -9,10 +9,10 @@
          <%= text_field_tag :word, "", id: "user_input", :autofocus => true, :autocomplete => :off %>
          <%= hidden_field_tag :answer, @word.text %>
          <%= hidden_field_tag :attempt, @attempt.id %>
-         <%= submit_tag :send %>
+         <%= submit_tag :send, id: "word-send" %>
       <% end %>
    <% end %>
-   <%= content_tag :div, id: "boss_try" do %>
-
+   <%= content_tag :div do %>
+      <%= content_tag :h2, "Word", id: "boss_try"%>
    <% end %>
 <% end %>
