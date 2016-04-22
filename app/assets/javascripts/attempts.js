@@ -1,6 +1,14 @@
 $(document).on('ready page:change', function(){
+   if ($('#boss_try').length == 0) {
+      return;
+   }
    var counter = 10000;
+   var x = parseInt($("#arm_x").val())
    opponentTypes();
+
+
+   $("#arm_lever").css('transform', 'rotate('+x+'deg)');
+   $("#arm_lever").css('transform-origin', 'bottom');
 
    function opponentTypes(){
       //the word to match
@@ -37,13 +45,15 @@ $(document).on('ready page:change', function(){
          //Increase score
          // counter++;
          //Increase angle of arm towards winning
-         // x = x + 9;
+         x = x + 9;
+         $("#arm_x").val(x);
+
          //Show score
          // console.log("Score:" + counter);
          //Rotate arm in css
-         // $("#arm img").css('transform', 'rotate('+x+'deg)');
-         // $("#arm img").css('transform-origin', 'bottom');
-         // $("#arm img").css('transition', 'transform 1s');
+         $("#arm_lever").css('transform', 'rotate('+x+'deg)');
+         $("#arm_lever").css('transform-origin', 'bottom');
+         $("#arm_lever").css('transition', 'transform 1s');
           // change_word();
           $('#word-send').click();
       } else if (counter <= 0 || $("#boss_try").text() == chal_word) {
@@ -52,7 +62,8 @@ $(document).on('ready page:change', function(){
          //Increase score
          // counter--;
          //Decrease angle of arm towards User losing
-         // x = x - 9;
+         x = x - 9;
+         $("#arm_x").val(x);
          //Show score
          // console.log("Score:" + counter);
          //Rotate arm in css
@@ -60,9 +71,9 @@ $(document).on('ready page:change', function(){
          // $(selector).css({property:value, property:value, ...})
          // $('.user-text').css('transform', 'scale(' + ui.value + ')');
          // $(selector).css(property,value)
-         // $("#arm img").css('transform', 'rotate('+x+'deg)');
-         // $("#arm img").css('transform-origin', 'bottom');
-         // $("#arm img").css('transition', 'transform 1s');
+         $("#arm_lever").css('transform', 'rotate('+x+'deg)');
+         $("#arm_lever").css('transform-origin', 'bottom');
+         $("#arm_lever").css('transition', 'transform 1s');
           // change_word();
           $('#word-send').click();
           $("#challenge_word").text("OUT OF TIME :(");

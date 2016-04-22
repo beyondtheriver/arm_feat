@@ -18,6 +18,14 @@ class AttemptsController < ApplicationController
       @attempt = Attempt.find(params[:id])
       words = Word.all.limit(20).shuffle
       @word = words.first
+      if params[:arm_x]
+         @arm_x = params[:arm_x]
+      else
+         @arm_x = 0
+      end
+
+      puts 'arm_x: ' + @arm_x.to_s
+
       # @attempt.user_score = !@attempt.user_score.nil? ? @attempt.user_score : 0;
 
    end
@@ -42,6 +50,7 @@ class AttemptsController < ApplicationController
       puts "PARAMS ARE: #{params}"
 
 
+
    if params[:answer] == params[:word].downcase
       @attempt.score += 1
       @attempt.save
@@ -58,7 +67,7 @@ class AttemptsController < ApplicationController
       end
    end
    if @attempt.score < 10 && @attempt.score > -10
-      redirect_to attempt_path(@attempt.id)
+      redirect_to attempt_path(@attempt.id, arm_x: params[:arm_x])
    else
       redirect_to user_path(current_user)
    end
