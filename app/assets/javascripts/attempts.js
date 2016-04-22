@@ -3,7 +3,8 @@ $(document).on('ready page:change', function(){
       return;
    }
    var counter = 10000;
-   var x = parseInt($("#arm_x").val())
+   var x = parseInt($("#arm_x").val());
+   var type_speed = 500;
    opponentTypes();
 
 
@@ -22,7 +23,7 @@ $(document).on('ready page:change', function(){
             typing += array[j];
             $("#boss_try").text(typing);
             // input.text(input.text() + );
-         }, i * 400, i)
+         }, i * type_speed, i)
       }
    }
 
