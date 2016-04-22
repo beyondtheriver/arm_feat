@@ -14,12 +14,12 @@ class AttemptsController < ApplicationController
 
    def show
       @attempt = Attempt.find(params[:id])
-      words = Word.all.limit(10).shuffle
+      words = Word.all.limit(20).shuffle
       @word = words.first
-      if session[:score]
-      @score = session[:score]
+      if @attempt[:user_score]
+      @score = @attempt[:user_score]
       else
-      @score = session[:score] = 0
+      @score = @attempt[:user_score] = 0
    end
    end
 

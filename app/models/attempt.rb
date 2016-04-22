@@ -1,6 +1,7 @@
 class Attempt < ActiveRecord::Base
    belongs_to :user
    has_many :words
+   has_one :user_score
 
    before_create :generate_attribute_values
 
