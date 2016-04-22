@@ -3,24 +3,23 @@ class AttemptsController < ApplicationController
       @attempts = Attempt.all
    end
 
-   # def new
-   #    @attempt = Attempt.new
-   # end
-
-   def create
-      @attempt = Attempt.create(attempt_params)
-      redirect_to attempt_path
+   def new
+      @attempt = Attempt.create(score: 0)
+      current_user.attempts.push @attempt
+      redirect_to @attempt
    end
+
+   # def create
+   #    @attempt = Attempt.create(attempt_params)
+   #    redirect_to attempt_path
+   # end
 
    def show
       @attempt = Attempt.find(params[:id])
       words = Word.all.limit(20).shuffle
       @word = words.first
-      if @attempt[:user_score]
-      @score = @attempt[:user_score]
-      else
-      @score = @attempt[:user_score] = 0
-   end
+      # @attempt.user_score = !@attempt.user_score.nil? ? @attempt.user_score : 0;
+
    end
 
    def edit
@@ -39,16 +38,29 @@ class AttemptsController < ApplicationController
    end
 
    def check_word
-      a = Attempt.find(params[:attempt])
-   puts "PARAMS ARE: #{params}"
+      @attempt = Attempt.find(params[:attempt])
+      puts "PARAMS ARE: #{params}"
+
+
    if params[:answer] == params[:word].downcase
-      session[:score] += 1
-      redirect_to attempt_path(a.id), notice: "Word complete!"
-
+      @attempt.score += 1
+      @attempt.save
+      flash[:notice] = "You typed the word correctly!"
+      if @attempt.score >= 10
+         flash[:notice] = "YOU WON!"
+      end
    else
-      session[:score] -= 1
-      redirect_to attempt_path(a.id), notice: "Try again!"
-
+      @attempt.score -= 1
+      @attempt.save
+      flash[:notice] = "The computer is faster than you!"
+      if @attempt.score <= -10
+         flash[:notice] = "YOU LOSE!"
+      end
+   end
+   if @attempt.score < 10 && @attempt.score > -10
+      redirect_to attempt_path(@attempt.id)
+   else
+      redirect_to root_path
    end
 end
 

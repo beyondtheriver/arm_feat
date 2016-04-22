@@ -5,7 +5,7 @@
       <%= content_tag :h3, "Welcome #{current_user.username}!" %>
       <%= content_tag :div, id: "logged-in" do %>
          <%= content_tag :div, id: "start-playing" do %>
-            <button class="home_buttons"><%= link_to "Play Now", attempt_path(Attempt.last.id) %></button>
+            <button class="home_buttons"><%= link_to "Play Now", new_attempt_path %></button>
          <% end %>
          <%= content_tag :div, id: "log-out" do %>
             <button class="home_buttons"><%= link_to "Log Out", logout_path, method: :delete %></button>

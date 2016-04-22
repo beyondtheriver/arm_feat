@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160422152844) do
     t.integer  "boss_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_score"
+    t.integer  "score"
   end
 
   create_table "users", force: :cascade do |t|
