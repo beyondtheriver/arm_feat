@@ -1,12 +1,14 @@
 #home_wrapper{
    background-image: url("arena.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
    overflow-x: hidden;
    width: 102%;
    height: 103%;
    padding-left: 2%;
    margin-left: -1%;
-   margin-bottom: -2%;
    margin-top: -16px;
+   margin-bottom: 10px;
    h3{
       font-family: impact;
    }
