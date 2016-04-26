@@ -9,5 +9,6 @@
 
    <%= content_tag :h1, "Username: #{@user.username}" %><br>
    <%= content_tag :h3, "Record: WINS 0 LOSSES 0" %><br>
+   <button class="home_buttons" id="profile_logout_button"><%= link_to "Log Out", logout_path, method: :delete %></button>
    <button class="home_buttons" id="profile_play_button"><%= link_to "LET'S PLAY!", new_attempt_path %></button>
 <% end %>

@@ -1,5 +1,5 @@
 #home_wrapper{
-   background-color: gray;
+   background-image: url("arena.jpg");
    overflow-x: hidden;
    width: 102%;
    height: 103%;
@@ -11,10 +11,17 @@
       font-family: impact;
    }
 }
+#home_logo{
+   width: 100%;
+   margin: auto;
+}
 #logged-in{
    display: flex;
    justify-content: space-around;
    margin-top: -86px;
+}
+#welcome_home{
+   color: white;
 }
 #not_logged_in{
    display: flex;

@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-     def new
+  def new
+
   end
 # create a new session when the user logs in
   def create
