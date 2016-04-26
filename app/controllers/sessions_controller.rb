@@ -4,8 +4,11 @@ class SessionsController < ApplicationController
   end
 # create a new session when the user logs in
   def create
-     @user = User.where(username: params[:session][:username]).first
-     if @user and @user.password == params[:session][:password]
+    session_params = params[:session]
+     @user = User.where(username: session_params['username']).first
+     puts "USER IS #{@user.inspect}"
+
+     if @user and @user.authenticate(session_params['password'])
      session[:user_id] = @user.id
 # redirect to the user's profile page
      flash[:notice] = "You're logged in"
