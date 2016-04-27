@@ -1,0 +1,2 @@
+class StatChartController < ApplicationController
+end
