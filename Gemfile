@@ -12,7 +12,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt'
 gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
-
+#use 'ap' instead of 'puts' and you will get easy interface for db data
+gem 'awesome_print'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

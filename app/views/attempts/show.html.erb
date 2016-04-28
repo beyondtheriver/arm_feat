@@ -1,6 +1,8 @@
 <%= content_tag :div, id: "attempts_wrapper" do %>
    <%= image_tag ("arm_feat_logo.png"), id: "mini-logo" %>
-
+   <%= content_tag :div, id: "flash_message" do %>
+         <%= flash[:notice] if flash[:notice] %>
+   <% end %>
    <%= content_tag :h1, @word.text, id: "challenge_word" %> <br>
    <%= content_tag :h3, "Your Score: #{@attempt.score}" %> <br>
 

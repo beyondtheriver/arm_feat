@@ -1,6 +1,6 @@
 <%= content_tag :div, id: "users_wrapper" do %>
    <%= image_tag ("arm_feat_logo.png"), id: "mini-logo" %>
-   <%= content_tag :h1, "Sign Up", id: "sign_up_header" %>
+   <%= content_tag :h2, "Sign Up", id: "sign_up_header" %>
    <%= content_tag :div, id: "sign_up_form" do %>
       <%= form_for(@user) do |f| %>
          <% if @user.errors.full_messages.any? %>
@@ -16,6 +16,7 @@
          <%= f.text_field :email %><br>
          <%= f.label :password %><br>
          <%= f.password_field :password %><br>
+         <%= f.label :avatar %>
          <%= f.file_field :avatar %><br>
          <%= f.submit "Sign Up!", id: "submit_button" %><br>
       <% end %>

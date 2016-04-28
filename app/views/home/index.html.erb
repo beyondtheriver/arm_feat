@@ -8,6 +8,9 @@
 </audio>
 <%= content_tag :div, id: "home_wrapper" do %>
    <%= image_tag("arm_feat_logo.png", id: "home_logo") %>
+   <%= content_tag :div, id: "flash_message" do %>
+      <%= flash[:notice] if flash[:notice] %>
+   <% end %>
 
    <% if current_user %>
       <%= content_tag :h3, "Welcome #{current_user.username}!", id: "welcome_home" %>

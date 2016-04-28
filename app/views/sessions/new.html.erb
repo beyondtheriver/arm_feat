@@ -1,12 +1,14 @@
-<h2>Log In Box</h2>
-<div id="rubylogin">
-   <%= form_for :session, url: '/login' do |f| %>
-   <%=f.label :username %>
-   <%=f.text_field :username %>
-   <br>
-   <%=f.label :password %>
-   <%=f.password_field :password %>
-   <br>
-   <%=f.submit :login %>
-   <% end %>
-</div>
+<%= image_tag ("arm_feat_logo.png"), id: "mini-logo" %>
+<%= content_tag :div, id: "log_in_box" do %>
+   <%= content_tag :h2, "Log In, Featist!", id: "log_in_header"%>
+   <div id="rubylogin">
+      <%= form_for :session, url: '/login' do |f| %>
+      <%=f.label :username %><br>
+      <%=f.text_field :username, :autofocus => true %><br>
+      <%=f.label :password %><br>
+      <%=f.password_field :password %><br><br>
+      <%=f.submit :login, id: "submit_button" %>
+      <% end %>
+   </div>
+<% end %>
+

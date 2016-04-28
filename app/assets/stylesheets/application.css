@@ -14,10 +14,15 @@
  *= require_self
  */
 body{
-   /*background-color: gray;*/
+   background-color: gray;
+   margin:0;
 }
 #flash_message{
    font-family: 'Metal Mania', cursive;
    font-size: 2em;
-   margin: 20px;
+   color: white;
+   position: fixed;
+   top: 15px;
+   left: 20px;
 }
+

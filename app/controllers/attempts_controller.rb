@@ -49,14 +49,15 @@ class AttemptsController < ApplicationController
       @attempt = Attempt.find(params[:attempt])
       puts "PARAMS ARE: #{params}"
 
-
-
    if params[:answer] == params[:word].downcase
       @attempt.score += 1
       @attempt.save
       flash[:notice] = "You typed the word correctly!"
       if @attempt.score >= 10
          flash[:notice] = "YOU WON!"
+         @stats = current_user.stat_chart
+         @stats.wins +=1
+         @stats.save
       end
    else
       @attempt.score -= 1
@@ -64,6 +65,9 @@ class AttemptsController < ApplicationController
       flash[:notice] = "The computer is faster than you!"
       if @attempt.score <= -10
          flash[:notice] = "YOU LOSE!"
+         @stats = current_user.stat_chart
+         @stats.losses += 1
+         @stats.save
       end
    end
    if @attempt.score < 10 && @attempt.score > -10
