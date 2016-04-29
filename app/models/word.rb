@@ -1,9 +1,9 @@
 class Word < ActiveRecord::Base
    has_many :attempts
 
-   before_create :generate_length
+   before_validation :set_defaults, on: :create
 
-   def generate_length
+   def set_defaults
       puts "generating length"
       self.length = self.text.length
    end

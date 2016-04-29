@@ -1,4 +1,5 @@
 $(document).on('ready page:change', function(){
+
    if ($('#boss_try').length == 0) {
       return;
    }
@@ -7,7 +8,6 @@ $(document).on('ready page:change', function(){
    var type_speed = 500;
    $('#noise')[0].play();
    opponentTypes();
-
 
    $("#arm_lever").css('transform', 'rotate('+x+'deg)');
    $("#arm_lever").css('transform-origin', 'bottom');
@@ -28,8 +28,7 @@ $(document).on('ready page:change', function(){
       }
    }
 
-
-   // Every tenth of a second
+   // Every tenth of a second check for word match
    setInterval(function(){
       // $('#chal').text(counter/1000);
       counter-=100;
@@ -42,32 +41,20 @@ $(document).on('ready page:change', function(){
       var comp_inp = "Test";
 
       if (chal_word === us_inp) {
-         //Do the words match?
-         console.log("USER MATCHED!")
-         //Increase score
-         // counter++;
          //Increase angle of arm towards winning
          x = x + 9;
          $("#arm_x").val(x);
-
-         //Show score
-         // console.log("Score:" + counter);
          //Rotate arm in css
          $("#arm_lever").css('transform', 'rotate('+x+'deg)');
          $("#arm_lever").css('transform-origin', 'bottom');
          $("#arm_lever").css('transition', 'transform 1s');
           // change_word();
+
           $('#word-send').click();
       } else if (counter <= 0 || $("#boss_try").text() == chal_word) {
-         //Do the words match?
-         console.log("COMPUTER MATCHED");
-         //Increase score
-         // counter--;
          //Decrease angle of arm towards User losing
          x = x - 9;
          $("#arm_x").val(x);
-         //Show score
-         // console.log("Score:" + counter);
          //Rotate arm in css
          //Three formats for CSS transformations:
          // $(selector).css({property:value, property:value, ...})
@@ -79,20 +66,6 @@ $(document).on('ready page:change', function(){
           // change_word();
           $('#word-send').click();
           $("#challenge_word").text("OUT OF TIME :(");
-
       }
-
-      //Wins when User score gets to ten.
-      // if (counter == 10) {
-      //    $("#announcer").html("YOU'RE THE WINNER!");
-      // }
-      // if (counter == -10) {
-      //    $("#announcer").html("COMPUTER IS THE WINNER!")
-      // }
-   //end of setInterval
   }, 100);
-
-
-
-
 })

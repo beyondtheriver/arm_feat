@@ -1,5 +1,5 @@
 
-<% Attempt.all.each do |a| %>
+<% @attempts.each do |a| %>
    User ID: <%= a.user_id %><br>
    Username: <%= a.user.username if a.user %>
    Level: <%= a.level %><br>

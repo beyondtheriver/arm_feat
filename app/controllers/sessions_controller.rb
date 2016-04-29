@@ -23,7 +23,6 @@ class SessionsController < ApplicationController
 
 
   def destroy
-
     if current_user
       session[:user_id] = nil
       flash[:notice] = "Signed out!"

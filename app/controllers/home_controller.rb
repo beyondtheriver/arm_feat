@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
  def index
-   words = Word.all.limit(4).shuffle
-   @word = words.first
+   word_ids = Word.pluck(:id)
+   id = word_ids.shuffle.first
+   @word = Word.find(id)
+
    if session[:score]
       @score = session[:score]
    else

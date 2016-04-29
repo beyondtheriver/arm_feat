@@ -1,4 +1,6 @@
 class WordsController < ApplicationController
+   before_action :load_resource, only: [:show, :edit, :update, :destroy]
+
    def index
       @words = Word.all
    end
@@ -8,33 +10,31 @@ class WordsController < ApplicationController
    end
 
    def create
-      # self.length = self.text.length
       @word = Word.create(word_params)
       redirect_to new_word_path
    end
 
-   def show
-      @word = Word.find(params[:id])
+   def edit
    end
 
-   def edit
-      @word = Word.find(params[:id])
-   end
    def update
-      @word = Word.find(params[:id])
       @word.update_attributes(word_params)
       redirect_to edit_word_path(@word)
    end
 
    def destroy
-      @word = Word.find(params[:id])
       @word.destroy
       redirect_to words_path
    end
 
-   private
+private
+
+   def load_resource
+      @word = Word.find(params[:id])
+   end
 
    def word_params
-    params.require(:word).permit(:text, :difficulty, :length)
+      params.require(:word)
+            .permit(:text, :difficulty, :length)
    end
 end

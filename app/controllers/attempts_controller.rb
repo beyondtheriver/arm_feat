@@ -1,21 +1,15 @@
 class AttemptsController < ApplicationController
+   before_action :load_resource, only: [:edit, :update, :show, :destroy]
    def index
       @attempts = Attempt.all
    end
 
    def new
-      @attempt = Attempt.create(score: 0)
-      current_user.attempts.push @attempt
+      @attempt = current_user.attempts.create(score: 0)
       redirect_to @attempt
    end
 
-   # def create
-   #    @attempt = Attempt.create(attempt_params)
-   #    redirect_to attempt_path
-   # end
-
    def show
-      @attempt = Attempt.find(params[:id])
       words = Word.all.limit(20).shuffle
       @word = words.first
       if params[:arm_x]
@@ -25,22 +19,14 @@ class AttemptsController < ApplicationController
       end
 
       puts 'arm_x: ' + @arm_x.to_s
-
-      # @attempt.user_score = !@attempt.user_score.nil? ? @attempt.user_score : 0;
-
    end
 
-   def edit
-      @attempt = Attempt.find(params[:id])
-   end
    def update
-      @attempt = Attempt.find(params[:id])
       @attempt.update_attributes(attempt_params)
       redirect_to edit_attempt_path(@attempt)
    end
 
    def destroy
-      @attempt = Attempt.find(params[:id])
       @attempt.destroy
       redirect_to attempts_path
    end
@@ -77,9 +63,14 @@ class AttemptsController < ApplicationController
    end
 end
 
-   private
+private
+
+   def load_resource
+      @attempt = Attempt.find(params[:id])
+   end
 
    def attempt_params
-    params.require(:attempt).permit(:user_id, :level, :boss_id)
+      params.require(:attempt)
+            .permit(:user_id, :level, :boss_id)
    end
 end
