@@ -4,13 +4,19 @@ $(document).on('ready page:change', function(){
    }
    var counter = 10000;
    var x = parseInt($("#arm_x").val());
+   //get score string to add to background image
+   var y = $("#score").text();
+   console.log(y);
    var type_speed = 500;
    $('#noise')[0].play();
    opponentTypes();
 
-
-   $("#arm_lever").css('transform', 'rotate('+x+'deg)');
-   $("#arm_lever").css('transform-origin', 'bottom');
+   //background image of boss with score of 0
+   // alert('TEST');
+   console.log("<%= asset_path('boss1/losing/score"+y+".jpg') %>");
+   $("#attempts_wrapper").css('background-image', 'url("/score'+y+'.jpg")');
+   // $("#arm_lever").css('transform', 'rotate('+x+'deg)');
+   // $("#arm_lever").css('transform-origin', 'bottom');
 
    function opponentTypes(){
       //the word to match
@@ -52,6 +58,8 @@ $(document).on('ready page:change', function(){
 
          //Show score
          // console.log("Score:" + counter);
+         // change background picture to represent opponent reaction
+
          //Rotate arm in css
          $("#arm_lever").css('transform', 'rotate('+x+'deg)');
          $("#arm_lever").css('transform-origin', 'bottom');

@@ -1,12 +1,12 @@
 #attempts_wrapper{
-   background-color: gray;
-   overflow-x: hidden;
-   width: 102%;
-   height: 103%;
-   padding-left: 2%;
-   margin-left: -1%;
-   margin-bottom: -2%;
-   margin-top: -16px;
+   position: fixed;
+   background-image: url("boss1/losing/score0.jpg");
+   background-size: cover;
+   right: 0;
+   left: 0;
+   bottom: 0;
+   top: 0;
+   width: 100%;
    font-family: impact;
 }
 #challenge_word{

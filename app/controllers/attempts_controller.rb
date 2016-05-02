@@ -9,14 +9,9 @@ class AttemptsController < ApplicationController
       redirect_to @attempt
    end
 
-   # def create
-   #    @attempt = Attempt.create(attempt_params)
-   #    redirect_to attempt_path
-   # end
-
    def show
       @attempt = Attempt.find(params[:id])
-      words = Word.all.limit(20).shuffle
+      words = Word.all.limit(30).shuffle
       @word = words.first
       if params[:arm_x]
          @arm_x = params[:arm_x]
@@ -25,14 +20,12 @@ class AttemptsController < ApplicationController
       end
 
       puts 'arm_x: ' + @arm_x.to_s
-
-      # @attempt.user_score = !@attempt.user_score.nil? ? @attempt.user_score : 0;
-
    end
 
    def edit
       @attempt = Attempt.find(params[:id])
    end
+
    def update
       @attempt = Attempt.find(params[:id])
       @attempt.update_attributes(attempt_params)

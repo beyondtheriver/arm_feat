@@ -1,3 +1,7 @@
+<!-- make crowd reactions -->
+<!-- <audio id="crowd_noise">
+   <source src="/crowd_noise.mp3" type="audio/mpeg">
+</audio> -->
 <%= content_tag :div, id: "attempts_wrapper" do %>
    <%= image_tag ("arm_feat_logo.png"), id: "mini-logo" %>
    <%= content_tag :div, id: "flash_message" do %>
@@ -5,11 +9,7 @@
    <% end %>
    <%= content_tag :h1, @word.text, id: "challenge_word" %> <br>
    <%= content_tag :h3, "Your Score: #{@attempt.score}" %> <br>
-
-   <%= content_tag :div, id: "arm" do %>
-      <%= image_tag ("arm_lever.jpg"), id: "arm_lever" %>
-   <% end %>
-
+   <%= content_tag :p, "#{@attempt.score}", id: "score" %>
    <%= content_tag :div, id: "user_try" do %>
       <%= form_tag check_word_path do %>
          <%= content_tag :h3, "Type Here!" %>
