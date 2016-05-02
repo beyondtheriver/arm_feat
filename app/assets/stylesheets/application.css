@@ -18,11 +18,18 @@ body{
    margin:0;
 }
 #flash_message{
-   font-family: 'Metal Mania', cursive;
+   font-family: 'Stardos Stencil', cursive;
    font-size: 2em;
-   color: white;
+   color: #AA0000;
    position: fixed;
    top: 15px;
    left: 20px;
 }
-
+#flash_message_profile{
+   font-family: 'Stardos Stencil', cursive;
+   font-size: 2em;
+   color: #AA0000;
+   position: fixed;
+   top: 50px;
+   left: 85px;
+}

@@ -45,7 +45,7 @@ class AttemptsController < ApplicationController
    if params[:answer] == params[:word].downcase
       @attempt.score += 1
       @attempt.save
-      flash[:notice] = "You typed the word correctly!"
+      flash[:notice] = "You typed correctly!"
       if @attempt.score >= 10
          flash[:notice] = "YOU WON!"
          @stats = current_user.stat_chart
@@ -55,7 +55,7 @@ class AttemptsController < ApplicationController
    else
       @attempt.score -= 1
       @attempt.save
-      flash[:notice] = "The computer is faster than you!"
+      flash[:notice] = "The computer is faster!"
       if @attempt.score <= -10
          flash[:notice] = "YOU LOSE!"
          @stats = current_user.stat_chart

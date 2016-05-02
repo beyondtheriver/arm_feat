@@ -7,10 +7,10 @@
    <%= content_tag :div, id: "flash_message" do %>
          <%= flash[:notice] if flash[:notice] %>
    <% end %>
-   <%= content_tag :h1, @word.text, id: "challenge_word" %> <br>
-   <%= content_tag :h3, "Your Score: #{@attempt.score}" %> <br>
+   <%= content_tag :h1, @word.text, id: "challenge_word" %>
    <%= content_tag :p, "#{@attempt.score}", id: "score" %>
    <%= content_tag :div, id: "user_try" do %>
+      <%= content_tag :h3, "Your Score: #{@attempt.score}" %>
       <%= form_tag check_word_path do %>
          <%= content_tag :h3, "Type Here!" %>
          <%= text_field_tag :word, "", id: "user_input", :autofocus => true, :autocomplete => :off %>
@@ -21,7 +21,7 @@
       <% end %>
    <% end %>
    <%= content_tag :div, id: "boss_space" do %>
-      <%= content_tag :p, "Computer Types:" %><br>
+      <%= content_tag :h3, "Computer Types:" %><br>
       <%= content_tag :p, "Word", id: "boss_try"%>
    <% end %>
 <% end %>

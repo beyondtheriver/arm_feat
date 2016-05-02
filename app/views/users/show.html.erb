@@ -1,7 +1,7 @@
 <%= content_tag :div, id: "background-wrapper" do %>
    <%= content_tag :div, id: "users_wrapper" do %>
       <%= image_tag ("arm_feat_logo.png"), id: "mini-logo" %>
-      <%= content_tag :div, id: "flash_message" do %>
+      <%= content_tag :div, id: "flash_message_profile" do %>
          <%= flash[:notice] if flash[:notice] %>
       <% end %>
       <%= content_tag :div, id: "user_photo" do %>
