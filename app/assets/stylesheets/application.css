@@ -27,9 +27,9 @@ body{
 }
 #flash_message_profile{
    font-family: 'Stardos Stencil', cursive;
-   font-size: 2em;
+   font-size: 6em;
    color: #AA0000;
    position: fixed;
-   top: 50px;
-   left: 85px;
+   top: 35%;
+   left: 45%;
 }
