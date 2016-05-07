@@ -12,11 +12,8 @@ $(document).on('ready page:change', function(){
    opponentTypes();
 
    //background image of boss with score of 0
-   // alert('TEST');
    console.log("<%= asset_path('boss1/losing/score"+y+".jpg') %>");
    $("#attempts_wrapper").css('background-image', 'url("/score'+y+'.jpg")');
-   // $("#arm_lever").css('transform', 'rotate('+x+'deg)');
-   // $("#arm_lever").css('transform-origin', 'bottom');
 
    function opponentTypes(){
       //the word to match
